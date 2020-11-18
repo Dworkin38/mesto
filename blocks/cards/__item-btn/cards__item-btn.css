@@ -1,0 +1,18 @@
+.cards__item-btn {
+  box-sizing: border-box;
+  width: 21px;
+  height: 18px;
+  align-self: end;
+  justify-self: end;
+  background-color: #fff;
+  background-image: url(../../../images/cards/like.svg);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-width: 0;
+  padding: 0;
+  margin: 0 17px 5px 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

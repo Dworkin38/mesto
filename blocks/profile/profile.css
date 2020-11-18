@@ -1,0 +1,15 @@
+.profile {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  column-gap: 30px;
+  justify-content: start;
+  align-items: center;
+}
+
+@media screen and (max-width: 735px) {
+  .profile {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    justify-items: center;
+  }
+}
