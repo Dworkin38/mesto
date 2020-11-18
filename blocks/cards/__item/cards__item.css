@@ -1,0 +1,14 @@
+.cards__item {
+  box-sizing: border-box;
+  padding: 0 0 25px 0;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 282px auto;
+  justify-content: space-between;
+  row-gap: 25px;
+  column-gap: 30px;
+  background: #fff;
+  color: #000;
+  border-radius: 10px;
+  overflow: hidden;
+}

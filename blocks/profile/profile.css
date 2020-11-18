@@ -1,6 +1,6 @@
 .profile {
   display: grid;
-  grid-template-columns: max-content max-content 1fr;
+  grid-template-columns: auto auto 1fr;
   column-gap: 30px;
   justify-content: start;
   align-items: center;
