@@ -13,8 +13,8 @@
     <div class="popup">
       <form class="popup__container">
         <fieldset class="popup__profile-edit">
-          <button class="btn btn_hover btn_type_img btn_style_close popup__btn-close" type="button"></button>
           <legend class="popup__title">Редактировать профиль</legend>
+          <button class="btn btn_hover btn_type_img btn_style_close popup__btn-close" type="button"></button>
           <input class="popup__input-name" type="text">
           <input class="popup__input-job" type="text">
           <button class="btn btn_hover btn_type_text popup__btn-save" type="submit">Сохранить</button>
@@ -22,7 +22,9 @@
       </form>
     </div>
     <header class="header page__header">
-      <a class="link header__logo" href="https://dworkin38.github.io/mesto/index.html"><img class="header__logo-img" src="images/header/logo.svg" alt="Mesto Russia"></a>
+      <a class="link header__logo" href="https://dworkin38.github.io/mesto/index.html" target="_self">
+        <img class="header__logo-img" src="images/header/logo.svg" alt="Mesto Russia">
+      </a>
     </header>
     <main class="main page__main">
       <section class="profile main__profile">
