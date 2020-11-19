@@ -1,0 +1,9 @@
+.btn_style_close {
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url(../../../images/btn/plus.svg);
+  background-size: contain;
+  padding: 0;
+  border: none;
+  outline: none;
+  transform: rotate(-45deg);
+}

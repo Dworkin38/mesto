@@ -6,6 +6,26 @@
 @import url(../blocks/page/__main/page__main.css);
 @import url(../blocks/page/__footer/page__footer.css);
 
+@import url(../blocks/btn/btn.css);
+@import url(../blocks/btn/_type/btn_type_img.css);
+@import url(../blocks/btn/_type/btn_type_text.css);
+@import url(../blocks/btn/_style/btn_style_close.css);
+@import url(../blocks/btn/_style/btn_style_add.css);
+@import url(../blocks/btn/_style/btn_style_edit.css);
+@import url(../blocks/btn/_style/btn_style_like.css);
+
+@import url(../blocks/link/link.css);
+
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__btn-close/popup__btn-close.css);
+@import url(../blocks/popup/__profile-edit/popup__profile-edit.css);
+@import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__input-name/popup__input-name.css);
+@import url(../blocks/popup/__input-job/popup__input-job.css);
+@import url(../blocks/popup/__btn-save/popup__btn-save.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
+
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
 @import url(../blocks/header/__logo-img/header__logo-img.css);
@@ -17,15 +37,15 @@
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
-@import url(../blocks/profile/__button-edit/profile__button-edit.css);
+@import url(../blocks/profile/__btn-edit/profile__btn-edit.css);
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
-@import url(../blocks/profile/__button-add/profile__button-add.css);
+@import url(../blocks/profile/__btn-add/profile__btn-add.css);
 
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/cards/__item/cards__item.css);
 @import url(../blocks/cards/__item-img/cards__item-img.css);
 @import url(../blocks/cards/__item-title/cards__item-title.css);
-@import url(../blocks/cards/__item-btn/cards__item-btn.css);
+@import url(../blocks/cards/__btn-like/cards__btn-like.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
