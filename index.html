@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="pages/index.css">
   <title>Mesto</title>
 </head>
+
 <body>
   <div class="page">
+    <div class="popup">
+      <form class="popup__container">
+        <fieldset class="popup__profile-edit">
+          <button class="popup__btn-close"></button>
+          <legend class="popup__title">Редактировать профиль</legend>
+          <input class="popup__input-name" type="text">
+          <input class="popup__input-job" type="text">
+          <button class="popup__btn-save">Сохранить</button>
+        </fieldset>
+      </form>
+    </div>
     <header class="header page__header">
-      <a class="header__logo" href="#"><img class="header__logo-img" src="images/header/logo.svg" alt="Mesto Russia"></a>
+      <a class="header__logo" href="#"><img class="header__logo-img" src="images/header/logo.svg"
+          alt="Mesto Russia"></a>
     </header>
     <main class="main page__main">
       <section class="profile main__profile">
@@ -19,7 +33,7 @@
           <button class="profile__button-edit"></button>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <button class="profile__button-add"></button> 
+        <button class="profile__button-add"></button>
       </section>
       <ul class="cards main__cards">
         <li class="cards__item">
@@ -59,4 +73,5 @@
     </footer>
   </div>
 </body>
+
 </html>

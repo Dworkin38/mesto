@@ -6,6 +6,15 @@
 @import url(../blocks/page/__main/page__main.css);
 @import url(../blocks/page/__footer/page__footer.css);
 
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__btn-close/popup__btn-close.css);
+@import url(../blocks/popup/__profile-edit/popup__profile-edit.css);
+@import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__input-name/popup__input-name.css);
+@import url(../blocks/popup/__input-job/popup__input-job.css);
+@import url(../blocks/popup/__btn-save/popup__btn-save.css);
+
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
 @import url(../blocks/header/__logo-img/header__logo-img.css);
