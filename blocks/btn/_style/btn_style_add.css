@@ -1,0 +1,6 @@
+.btn_style_add {
+  background-image: url(../../../images/btn/plus.svg);
+  background-color: #000;
+  border: 2px solid #fff;
+  border-radius: 2px;
+}
