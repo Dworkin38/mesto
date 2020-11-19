@@ -1,9 +1,5 @@
 .btn {
   box-sizing: border-box;
   cursor: pointer;
-  transition: opacity .3s ease-in;
-}
-
-.btn:hover {
-  opacity: .6;
+  outline: none;
 }
