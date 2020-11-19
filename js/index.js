@@ -6,7 +6,7 @@ const popupInputJob = document.querySelector('.popup__input-job');
 
 function toggleVisibilityEditForm() {
   const popupEditProfile = document.querySelector('.popup');
-
+  
   profileBtnEdit.classList.toggle('btn_hover');
   popupEditProfile.classList.toggle('popup_opened');
 }
@@ -33,8 +33,8 @@ function renderPopupEditForm() {
 
   toggleVisibilityEditForm();
   saveInInputEditForm();
-  popupEditProfileForm.addEventListener('submit', handleEditProfileFormSubmit);
   popupBtnClose.addEventListener('click', toggleVisibilityEditForm);
+  popupEditProfileForm.addEventListener('submit', handleEditProfileFormSubmit);
 }
 
 profileBtnEdit.addEventListener('click', renderPopupEditForm);
