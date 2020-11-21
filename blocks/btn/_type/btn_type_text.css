@@ -4,4 +4,9 @@
   color: #fff;
   border: none;
   text-align: center;
+  transition: opacity .3s ease-in;
+}
+
+.btn_type_text:hover {
+  opacity: .8;
 }

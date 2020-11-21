@@ -13,17 +13,17 @@
 @import url(../blocks/btn/_style/btn_style_add.css);
 @import url(../blocks/btn/_style/btn_style_edit.css);
 @import url(../blocks/btn/_style/btn_style_like.css);
-@import url(../blocks/btn/_hover/btn_hover.css);
 
 @import url(../blocks/link/link.css);
+
+@import url(../blocks/input/input.css);
 
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__btn-close/popup__btn-close.css);
 @import url(../blocks/popup/__profile-edit/popup__profile-edit.css);
 @import url(../blocks/popup/__title/popup__title.css);
-@import url(../blocks/popup/__input-name/popup__input-name.css);
-@import url(../blocks/popup/__input-job/popup__input-job.css);
+@import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__btn-save/popup__btn-save.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 

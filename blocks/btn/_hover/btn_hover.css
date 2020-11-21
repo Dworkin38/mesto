@@ -1,7 +1,0 @@
-.btn_hover{
-  transition: opacity .3s ease-in;
-}
-
-.btn_hover:hover {
-  opacity: .6;
-}

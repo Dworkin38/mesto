@@ -1,4 +1,9 @@
 .btn_type_img {
   background-position: center;
   background-repeat: no-repeat;
+  transition: opacity .3s ease-in;
+}
+
+.btn_type_img:hover {
+  opacity: .6;
 }
