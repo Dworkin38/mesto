@@ -4,50 +4,31 @@ const profileName = profile.querySelector('.profile__name');
 const profileSubtitle = profile.querySelector('.profile__subtitle');
 
 const popupEditProfile = document.querySelector('.popup');
-const popupEditProfileInputName = popupEditProfile.querySelector('.input[name=profileName]');
-const popupEditProfileInputJob = popupEditProfile.querySelector('.input[name=profileJob]');
+const popupEditProfileInputName = popupEditProfile.querySelector('.popup__input_type_name');
+const popupEditProfileInputJob = popupEditProfile.querySelector('.popup__input_type_job');
 const popupEditProfileBtnClose = popupEditProfile.querySelector('.popup__btn-close');
 const popupEditProfileForm = popupEditProfile.querySelector('.popup__container');
 
-function toggleVisibilityEditForm() { 
-  popupEditProfile.classList.toggle('popup_opened');
+function toggleVisibilityEditForm() {   
+
+  if( popupEditProfile.classList.toggle('popup_opened') ) {
+    popupEditProfileInputName.value = profileName.textContent;
+    popupEditProfileInputJob.value = profileSubtitle.textContent;
+  } 
 }
 
-function saveInInputProfileEditForm() {
-  popupEditProfileInputName.value = profileName.textContent;
-  popupEditProfileInputJob.value = profileSubtitle.textContent;
-}
-
-function saveProfile() {
+function saveProfile() { 
   profileName.textContent = popupEditProfileInputName.value;
   profileSubtitle.textContent = popupEditProfileInputJob.value;
 }
 
-function openPopupEditProfile() {
-  
-  if( popupEditProfile.classList.contains('popup_opened') ) {
-    saveInInputEditForm();
-  } else {
-    saveInInputProfileEditForm();
-    toggleVisibilityEditForm();
-  } 
-}
-
-function closePopupEditProfile() {
-  
-  if( popupEditProfile.classList.contains('popup_opened') ) {
-    toggleVisibilityEditForm();
-  }  
-}
-
-function handleEditProfileFormSubmit(event) {
- 
+function handleEditProfileFormSubmit(event) { 
   event.preventDefault();
   saveProfile();
-  closePopupEditProfile();
+  toggleVisibilityEditForm();
 }
 
-profileBtnEdit.addEventListener('click', openPopupEditProfile);
-popupEditProfileBtnClose.addEventListener('click', closePopupEditProfile);
+profileBtnEdit.addEventListener('click', toggleVisibilityEditForm);
+popupEditProfileBtnClose.addEventListener('click', toggleVisibilityEditForm);
 popupEditProfileForm.addEventListener('submit', handleEditProfileFormSubmit);
 
