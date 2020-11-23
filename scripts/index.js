@@ -10,9 +10,8 @@ const popupEditProfileBtnClose = popupEditProfile.querySelector('.popup__btn-clo
 const popupEditProfileForm = popupEditProfile.querySelector('.popup__container');
 
 function toggleVisibilityEditForm() {   
-  popupEditProfile.classList.toggle('popup_opened');
-
-  if( popupEditProfile.classList.contains('popup_opened') ) {
+  
+  if( popupEditProfile.classList.toggle('popup_opened') ) {
     popupEditProfileInputName.value = profileName.textContent;
     popupEditProfileInputJob.value = profileSubtitle.textContent;
   } 
