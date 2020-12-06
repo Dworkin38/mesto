@@ -1,5 +1,11 @@
 .page {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr ;
+  justify-content: center;
+  align-content: flex-start;
   width: 100%;
+  min-height: 100vh;
   min-width: 320px;
   background: #000;
   font-family: 'Inter', 'Arial', sans-serif;
