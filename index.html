@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="pages/index.css">
+  <script src="scripts/index.js" defer></script>
   <title>Mesto</title>
 </head>
 
@@ -26,55 +27,60 @@
         <button class="btn btn_type_img btn_style_add profile__btn-add" type="button"></button>
       </section>
       <section class="cards main__cards">
-        <article class="cards__item">
-          <img class="cards__item-img" src="images/cards/cards1.jpg" alt="Карачаевск">
-          <h2 class="cards__item-title">Карачаевск</h2>
-          <button class="btn btn_type_img btn_style_like cards__btn-like" type="button"></button>
-        </article>
-        <article class="cards__item">
-          <img class="cards__item-img" src="images/cards/cards2.jpg" alt="Гора Эльбрус">
-          <h2 class="cards__item-title">Гора Эльбрус</h2>
-          <button class="btn btn_type_img btn_style_like cards__btn-like" type="button"></button>
-        </article>
-        <article class="cards__item">
-          <img class="cards__item-img" src="images/cards/cards3.jpg" alt="Домбай">
-          <h2 class="cards__item-title">Домбай</h2>
-          <button class="btn btn_type_img btn_style_like cards__btn-like" type="button"></button>
-        </article>
-        <article class="cards__item">
-          <img class="cards__item-img" src="images/cards/cards4.jpg" alt="Гора Эльбрус">
-          <h2 class="cards__item-title">Гора Эльбрус</h2>
-          <button class="btn btn_type_img btn_style_like cards__btn-like" type="button"></button>
-        </article>
-        <article class="cards__item">
-          <img class="cards__item-img" src="images/cards/cards5.jpg" alt="Домбай">
-          <h2 class="cards__item-title">Домбай</h2>
-          <button class="btn btn_type_img btn_style_like cards__btn-like" type="button"></button>
-        </article>
-        <article class="cards__item">
-          <img class="cards__item-img" src="images/cards/cards6.jpg" alt="Карачаево-Черкесия">
-          <h2 class="cards__item-title">Карачаево-Черкесия</h2>
-          <button class="btn btn_type_img btn_style_like cards__btn-like" type="button"></button>
-        </article>
       </section>
     </main>
     <footer class="footer page__footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <div class="popup">
+    <div class="popup popup_type_form">
       <form class="popup__container" name="profileEdit" method="post" action="#">
-        <fieldset class="popup__profile-edit">
-          <legend class="popup__title">Редактировать профиль</legend>
-          <button class="btn btn_type_img btn_style_close popup__btn-close" type="button"></button>
-          <input class="popup__input popup__input_type_name" type="text" name="profileName">
-          <input class="popup__input popup__input_type_job" type="text" name="profileJob">
-          <button class="btn btn_type_text popup__btn-save" type="submit">Сохранить</button>
-        </fieldset>
+        <button class="btn btn_type_img btn_style_close popup__btn-close" type="button"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input class="popup__input popup__input_type_profile-name" type="text" name="profileName">
+        <input class="popup__input popup__input_type_profile-job" type="text" name="profileJob">
+        <button class="btn btn_type_text popup__btn-form" type="submit">Сохранить</button>
       </form>
     </div>
+
+    <div class="popup popup_type_form">
+      <form class="popup__container" name="cardAdd" method="post" action="#">
+        <button class="btn btn_type_img btn_style_close popup__btn-close" type="button"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <input class="popup__input popup__input_type_card-title" type="text" name="cardTitle" placeholder="Название">
+        <input class="popup__input popup__input_type_card-link" type="url" name="cardLink" placeholder="Ссылка на картинку">
+        <button class="btn btn_type_text popup__btn-form" type="submit">Создать</button>
+      </form>
+    </div>
+
+    <div class="popup popup_type_img">
+      <figure class="popup__figure">
+        <button class="btn btn_type_img btn_style_close popup__btn-close" type="button"></button>
+        <img class="popup__img" src="#" alt="#">
+        <figcaption class="popup__caption"></figcaption>
+      </figure>
+    </div>
+
+    <template id="card">
+      <article class="cards__item">
+        <img class="cards__item-img">
+        <h2 class="cards__item-title"></h2>
+        <button class="btn cards__btn-trash" type="button">
+          <svg width="18" height="20" stroke="inherit" fill="inherit" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.458 18.142c.06.67.61 1.158 1.28 1.158H14.26c.67 0 1.22-.508 1.28-1.158L16.72 5.79H1.28l1.179 12.352zM16.72 
+            1.93h-5.14v-.65C11.58.569 11.011 0 10.3 0H7.72C7.01 0 6.44.569 6.44 1.28v.65H1.28C.569 1.93 0 2.499 0 3.21c0 .711.569 1.28 1.28 
+            1.28h15.44c.711 0 1.28-.569 1.28-1.28 0-.711-.569-1.28-1.28-1.28z"/>
+          </svg>
+        </button>
+        <button class="btn cards__btn-like" type="button">
+          <svg width="21" height="19" stroke="inherit" fill="inherit" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.8 1.958l.002.002c1.942 1.922 1.944 5.079-.002 7.025l-8.439 8.439L1.946 9.01l-.001-.002A5.019 5.019 0 01.5 5.482a4.93 
+              4.93 0 011.443-3.524h0l.001-.001C3.866.016 7.022.013 8.967 1.977l.002.003 1.038 1.038.358.357.353-.36 1.037-1.058a4.986 4.986 0 017.045.001z"/>
+          </svg>
+        </button>
+      </article>
+    </template>
   </div>
-  <script src="scripts/index.js"></script>
 </body>
 
 </html>

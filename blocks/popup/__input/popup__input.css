@@ -15,6 +15,10 @@
   margin: 0 0 48px;
 }
 
+::placeholder {
+  color: #C4C4C4;
+}
+
 @media screen and (max-width: 500px) {
   .popup__input:last-of-type {
     margin: 0 0 45px;

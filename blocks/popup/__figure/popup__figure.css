@@ -1,0 +1,7 @@
+.popup__figure {
+  position: relative;
+  display: grid;
+  grid-template-columns: min-content;
+  margin: 0;
+  transform: translateY(14px);
+}

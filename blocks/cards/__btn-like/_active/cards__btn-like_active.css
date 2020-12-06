@@ -1,0 +1,7 @@
+.cards__btn-like_active {
+  fill: #000;
+}
+
+.cards__btn-like_active:hover {
+  opacity: 1;
+}

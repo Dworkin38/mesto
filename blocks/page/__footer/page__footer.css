@@ -1,16 +1,21 @@
 .page__footer {
+  box-sizing: border-box;
+  align-self: end;
+  width: 100%;
   max-width: 880px;
   margin: 0 auto;
 }
 
 @media screen and (max-width: 944px) {
   .page__footer {
-    margin: 0 32px;
+    padding-right: 32px;
+    padding-left: 32px;
   }
 }
 
 @media screen and (max-width: 735px) {
   .page__footer {
-    margin: 0 19px;
+    padding-right: 19px;
+    padding-left: 19px;
   }
 }
