@@ -1,4 +1,5 @@
 .cards__btn-trash {
+  z-index: 2;
   width: 18px;
   height: 20px;
   align-self: start;
@@ -8,12 +9,7 @@
   padding: 0;
   margin: 18px 15px 0 0;
   background-color: rgba(0,0,0,0);
+  background-image: url(../../../images/btn/trash.svg);
+  background-size: contain;
   border: none;
-  fill: #fff;
-  stroke: #fff;
-  transition: opacity .3s ease-in;
-}
-
-.cards__btn-trash:hover {
-  opacity: 0.6;
 }

@@ -159,4 +159,4 @@ cardsSection.addEventListener('click', handlerCards);
 profile.addEventListener('click', handlerProfile);
 popupImgView.addEventListener('click', handlerPopupImgView);
 popupAddCard.addEventListener('click', handlerPopupAddCard);
-popupEditProfile.addEventListener('click', handlerPopupEditForm)
+popupEditProfile.addEventListener('click', handlerPopupEditForm);
