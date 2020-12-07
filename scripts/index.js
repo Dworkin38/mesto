@@ -85,15 +85,18 @@ function openPopupImg(event) {
   popupImg.src = imgTargetElement.src;
   popupImg.alt = imgTargetElement.alt;
   popupImgCaption.textContent = imgTargetElement.alt;
+  popupImgView.style.visibility = "visible";
   popupImgView.classList.toggle('popup_opened');
 }
 
 function closePopup(event) {
   const popup = event.target.closest('.popup');
+  popup.style.visibility = "hidden";
   popup.classList.toggle('popup_opened');
 }
 
 function openPopupAddCard(event) {
+  popupAddCard.style.visibility = "visible";
   popupAddCard.classList.toggle('popup_opened');
 }
 
@@ -104,7 +107,8 @@ function createNewCard() {
   renderCards(cardElement);
 }
 
-function openPopupEditForm() {   
+function openPopupEditForm() {
+  popupEditProfile.style.visibility = "visible";   
   popupEditProfile.classList.toggle('popup_opened');
 
   if( popupEditProfile.classList.contains('popup_opened') === true ) {
@@ -154,6 +158,13 @@ function handlerPopupEditForm(event) {
   }
 }
 
+function hideInitialPopup() {
+  popupImgView.style.visibility = "hidden";
+  popupAddCard.style.visibility = "hidden";
+  popupEditProfile.style.visibility = "hidden";
+}
+
+document.addEventListener("DOMContentLoaded", hideInitialPopup);
 renderCards(...initialCards);
 cardsSection.addEventListener('click', handlerCards);
 profile.addEventListener('click', handlerProfile);
