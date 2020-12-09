@@ -54,7 +54,7 @@ function createCard(card) {
   cardTitle.textContent = card.name;
   cardBtnLike.addEventListener('click', toggleLike);
   cardBtnDelete.addEventListener('click', deleteCard);
-  cardImg.addEventListener('click', openPopup);
+  cardImg.addEventListener('click', handlerClickImg);
 
   return cardTemplate;
 }
@@ -75,15 +75,6 @@ function deleteCard(event) {
   event.target.closest('.cards__item').remove();
 }
 
-function closePopup(event) {
-  const popup = event.target.closest('.popup');
-  if(popup.classList.contains('popup_name_cardAdd')) {
-    popupCardTitle.value = '';
-    popupCardLink.value = '';
-  }
-  popup.classList.toggle('popup_opened');
-}
-
 function createNewCard() {
   const cardElement = {};
 
@@ -98,55 +89,63 @@ function saveProfile() {
   profileSubtitle.textContent = popupEditProfileInputJob.value;
 }
 
-// метод Делегирование событий
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+}
 
-function openPopup(event) {
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+}
 
-  if(event.target.closest('.cards__item-img')) {
-    const imgTargetElement = event.target.closest('.cards__item-img');
-    const popupImg = popupImgView.querySelector('.popup__img');
-    const popupImgCaption = popupImgView.querySelector('.popup__caption');
+// Обработчики событий
 
-    popupImg.src = imgTargetElement.src;
-    popupImg.alt = imgTargetElement.alt;
-    popupImgCaption.textContent = imgTargetElement.alt;
+function handlerClickImg(event) {
+  const imgTargetElement = event.target.closest('.cards__item-img');
+  const popupImg = popupImgView.querySelector('.popup__img');
+  const popupImgCaption = popupImgView.querySelector('.popup__caption');
 
-    popupImgView.classList.toggle('popup_opened');
-  }
+  popupImg.src = imgTargetElement.src;
+  popupImg.alt = imgTargetElement.alt;
+  popupImgCaption.textContent = imgTargetElement.alt;
+  openPopup(popupImgView);
+}
 
-  if(event.target.closest('.profile__btn-add')) popupAddCard.classList.toggle('popup_opened');
+function handlerBtnEditProfile() {
+  popupEditProfileInputName.value = profileName.textContent;
+  popupEditProfileInputJob.value = profileSubtitle.textContent;
+  openPopup(popupEditProfile);
+}
 
-  if(event.target.closest('.profile__btn-edit')) { 
-    popupEditProfile.classList.toggle('popup_opened');
-  
-    if( popupEditProfile.classList.contains('popup_opened') === true ) {
-      popupEditProfileInputName.value = profileName.textContent;
-      popupEditProfileInputJob.value = profileSubtitle.textContent;
-    }
-  }
+function handlerBtnAddCard() {
+  popupCardTitle.value = '';
+  popupCardLink.value = '';
+  openPopup(popupAddCard);
 }
 
 function handlerPopup(event) {
-  if(event.target.closest('.popup__btn-close') || event.target.classList.contains('popup')) closePopup(event);
+  if(event.target.closest('.popup__btn-close') || event.target.classList.contains('popup')) closePopup(event.target.closest('.popup'));
 }
 
-function handlerPopupBtn(event) {
+function handlerSubmitAddCard(event) {
   event.preventDefault();
+  createNewCard();
+  closePopup(popupAddCard);
+}
 
-  if(event.target.closest('.popup_name_profileEdit')) saveProfile();
-  if(event.target.closest('.popup_name_cardAdd')) createNewCard();
-
-  closePopup(event);
+function handlerSubmitEditProfile(event) {
+  event.preventDefault();
+  saveProfile();
+  closePopup(popupEditProfile);
 }
 
 renderCards(...initialCards);
 
-profileBtnEdit.addEventListener('click', openPopup);
-profileBtnAddCard.addEventListener('click', openPopup);
+profileBtnEdit.addEventListener('click', handlerBtnEditProfile);
+profileBtnAddCard.addEventListener('click', handlerBtnAddCard);
 
 popupImgView.addEventListener('click', handlerPopup); 
 popupAddCard.addEventListener('click', handlerPopup); 
 popupEditProfile.addEventListener('click', handlerPopup);
 
-popupAddCard.addEventListener('submit', handlerPopupBtn); 
-popupEditProfile.addEventListener('submit', handlerPopupBtn); 
+popupAddCard.addEventListener('submit', handlerSubmitAddCard); 
+popupEditProfile.addEventListener('submit', handlerSubmitEditProfile); 
