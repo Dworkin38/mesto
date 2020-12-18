@@ -1,0 +1,12 @@
+.popup__btn-form_invalid {
+  background-color: rgba(0,0,0,0);
+  opacity: .2;
+  border: 1px solid #000;
+  color: #000;
+  border-radius: 2px;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

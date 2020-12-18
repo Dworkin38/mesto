@@ -122,8 +122,13 @@ function handlerBtnAddCard() {
   openPopup(popupAddCard);
 }
 
-function handlerPopup(event) {
+function handlerClickPopup(event) {
   if(event.target.closest('.popup__btn-close') || event.target.classList.contains('popup')) closePopup(event.target.closest('.popup'));
+}
+
+function handlerKeydownPopup(event) {
+  const popupOpen = document.querySelector('.popup_opened');
+  if( (event.key === 'Escape') && (popupOpen) ) closePopup(popupOpen);
 }
 
 function handlerSubmitAddCard(event) {
@@ -143,9 +148,11 @@ renderCards(...initialCards);
 profileBtnEdit.addEventListener('click', handlerBtnEditProfile);
 profileBtnAddCard.addEventListener('click', handlerBtnAddCard);
 
-popupImgView.addEventListener('click', handlerPopup); 
-popupAddCard.addEventListener('click', handlerPopup); 
-popupEditProfile.addEventListener('click', handlerPopup);
+popupImgView.addEventListener('click', handlerClickPopup); 
+popupAddCard.addEventListener('click', handlerClickPopup); 
+popupEditProfile.addEventListener('click', handlerClickPopup);
+
+document.addEventListener('keydown', handlerKeydownPopup); 
 
 popupAddCard.addEventListener('submit', handlerSubmitAddCard); 
 popupEditProfile.addEventListener('submit', handlerSubmitEditProfile); 

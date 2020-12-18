@@ -1,0 +1,10 @@
+.popup__field {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin: 0 0 35px;
+}
+
+.popup__field:last-of-type {
+  margin: 0;
+}

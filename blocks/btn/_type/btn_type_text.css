@@ -1,12 +1,6 @@
 .btn_type_text {
-  background-color: #000;
   font-weight: 400;
   color: #fff;
   border: none;
   text-align: center;
-  transition: opacity .3s ease-in;
-}
-
-.btn_type_text:hover {
-  opacity: .8;
 }
