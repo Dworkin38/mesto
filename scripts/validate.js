@@ -72,8 +72,8 @@ enableValidation(classListForm);
 // При открытии popup profile edit вставляется текс поэтому проверяю валидацию при открытии
 document.addEventListener('click', function (evt)  {
   const popupOpen = document.querySelector('.popup_opened');
-
-  if(popupOpen) {
+  
+  if(popupOpen && popupOpen.classList.contains('popup_type_form')) {
     const popupSubmitBtn = popupOpen.querySelector(classListForm.submitButtonSelector);
     toggleBtnPopupFormState(isValidForm(popupOpen.querySelector(classListForm.formSelector)), popupSubmitBtn, classListForm);
   }

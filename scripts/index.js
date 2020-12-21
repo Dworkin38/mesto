@@ -7,6 +7,7 @@ const profileSubtitle = profile.querySelector('.profile__subtitle');
 const popupImgView = document.querySelector('.popup_type_img');
 
 const popupAddCard = document.querySelector('.popup_name_cardAdd');
+const popupAddCardForm = popupAddCard.querySelector('.popup__container');
 const popupCardTitle = popupAddCard.querySelector('.popup__input_type_card-title');
 const popupCardLink = popupAddCard.querySelector('.popup__input_type_card-link');
 
@@ -15,32 +16,6 @@ const popupEditProfileInputName = popupEditProfile.querySelector('.popup__input_
 const popupEditProfileInputJob = popupEditProfile.querySelector('.popup__input_type_profile-job');
 
 const cardsSection = document.querySelector('.cards');
-const initialCards = [
-  {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-      name: 'Байкал',
-      link: 'https://images.unsplash.com/photo-1605639743310-db006cc1b95a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-  },
-  {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
 
 function createCard(card) {
   const cardTemplate = document.querySelector('#card').content.cloneNode(true);
@@ -95,6 +70,7 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', handlerKeydownPopup);
 }
 
 // Обработчики событий
@@ -108,27 +84,30 @@ function handlerClickImg(event) {
   popupImg.alt = imgTargetElement.alt;
   popupImgCaption.textContent = imgTargetElement.alt;
   openPopup(popupImgView);
+  document.addEventListener('keydown', handlerKeydownPopup);
 }
 
 function handlerBtnEditProfile() {
   popupEditProfileInputName.value = profileName.textContent;
   popupEditProfileInputJob.value = profileSubtitle.textContent;
   openPopup(popupEditProfile);
+  document.addEventListener('keydown', handlerKeydownPopup);
 }
 
 function handlerBtnAddCard() {
-  popupCardTitle.value = '';
-  popupCardLink.value = '';
+  popupAddCardForm.reset();
   openPopup(popupAddCard);
-}
-
-function handlerClickPopup(event) {
-  if(event.target.closest('.popup__btn-close') || event.target.classList.contains('popup')) closePopup(event.target.closest('.popup'));
+  document.addEventListener('keydown', handlerKeydownPopup);
 }
 
 function handlerKeydownPopup(event) {
   const popupOpen = document.querySelector('.popup_opened');
   if( (event.key === 'Escape') && (popupOpen) ) closePopup(popupOpen);
+}
+
+function handlerClickPopup(event) {
+
+  if(event.target.closest('.popup__btn-close') || event.target.classList.contains('popup')) closePopup(event.target.closest('.popup'));
 }
 
 function handlerSubmitAddCard(event) {
@@ -151,8 +130,6 @@ profileBtnAddCard.addEventListener('click', handlerBtnAddCard);
 popupImgView.addEventListener('click', handlerClickPopup); 
 popupAddCard.addEventListener('click', handlerClickPopup); 
 popupEditProfile.addEventListener('click', handlerClickPopup);
-
-document.addEventListener('keydown', handlerKeydownPopup); 
 
 popupAddCard.addEventListener('submit', handlerSubmitAddCard); 
 popupEditProfile.addEventListener('submit', handlerSubmitEditProfile); 
