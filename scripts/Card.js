@@ -1,5 +1,5 @@
 //Эти методы должны быть в классе Popup
-import {openPopup, handlerKeydownPopup, popupImgView} from './index.js'
+import {openPopup, popupImgView} from './index.js'
 export {Card}
 
 class Card {
@@ -17,11 +17,12 @@ class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    const cardImg = this._element.querySelector('.cards__item-img');
     this._setEventListener();
 
     this._element.querySelector('.cards__item-title').textContent = this._name;
-    this._element.querySelector('.cards__item-img').src = this._imgLink;
-    this._element.querySelector('.cards__item-img').alt = this._name;
+    cardImg.src = this._imgLink;
+    cardImg.alt = this._name;
 
     return this._element;
   }
@@ -48,6 +49,5 @@ class Card {
     popupImg.alt = this._name;
     popupImgCaption.textContent = this._name;
     openPopup(popupImgView);
-    document.addEventListener('keydown', handlerKeydownPopup);
   }
 }

@@ -20,7 +20,8 @@ export class FormValidator {
   _setEventListenersPopupInput() {
     const popupInputList = Array.from(this._formElement.querySelectorAll(this._classListForm.inputSelector));
     const popupSubmitBtn = this._formElement.querySelector(this._classListForm.submitButtonSelector);
-
+    
+    this._toggleBtnPopupFormState(this._isValidForm(), popupSubmitBtn);
     popupInputList.forEach((popupInputElement) => {
       popupInputElement.addEventListener('input', () => {
         this._checkPopupInputValidity(popupInputElement);

@@ -37,7 +37,7 @@ function createNewCard() {
   cardElement.name = popupCardTitle.value;
   cardElement.link = popupCardLink.value;
 
-  renderCards(cardElement);
+  addCard(cardElement);
 }
 
 function saveProfile() { 
@@ -47,6 +47,7 @@ function saveProfile() {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', handlerKeydownPopup);
 }
 
 function closePopup(popup) {
@@ -60,13 +61,11 @@ function handlerBtnEditProfile() {
   popupEditProfileInputName.value = profileName.textContent;
   popupEditProfileInputJob.value = profileSubtitle.textContent;
   openPopup(popupEditProfile);
-  document.addEventListener('keydown', handlerKeydownPopup);
 }
 
 function handlerBtnAddCard() {
   popupAddCardForm.reset();
   openPopup(popupAddCard);
-  document.addEventListener('keydown', handlerKeydownPopup);
 }
 
 function handlerKeydownPopup(event) {
