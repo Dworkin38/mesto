@@ -1,10 +1,15 @@
+export {openPopup, handlerKeydownPopup};
+import {Card} from './Card.js';
+import {initialCards, classListForm} from './data.js';
+import {FormValidator} from './FormValidator.js';
+
 const profile = document.querySelector('.profile');
 const profileBtnEdit = profile.querySelector('.profile__btn-edit');
 const profileBtnAddCard = profile.querySelector('.profile__btn-add');
 const profileName = profile.querySelector('.profile__name');
 const profileSubtitle = profile.querySelector('.profile__subtitle');
 
-const popupImgView = document.querySelector('.popup_type_img');
+export const popupImgView = document.querySelector('.popup_type_img');
 
 const popupAddCard = document.querySelector('.popup_name_cardAdd');
 const popupAddCardForm = popupAddCard.querySelector('.popup__container');
@@ -17,37 +22,13 @@ const popupEditProfileInputJob = popupEditProfile.querySelector('.popup__input_t
 
 const cardsSection = document.querySelector('.cards');
 
-function createCard(card) {
-  const cardTemplate = document.querySelector('#card').content.cloneNode(true);
-  const cardTitle = cardTemplate.querySelector('.cards__item-title');
-  const cardImg = cardTemplate.querySelector('.cards__item-img');
-  const cardBtnLike = cardTemplate.querySelector('.cards__btn-like');
-  const cardBtnDelete = cardTemplate.querySelector('.cards__btn-trash')
-
-  cardImg.src = card.link;
-  cardImg.alt = card.name;
-  cardTitle.textContent = card.name;
-  cardBtnLike.addEventListener('click', toggleLike);
-  cardBtnDelete.addEventListener('click', deleteCard);
-  cardImg.addEventListener('click', handlerClickImg);
-
-  return cardTemplate;
-}
-
-function addCard(card) {
-  cardsSection.prepend(createCard(card));
+function addCard(data) {
+  const card = new Card(data, '#card');
+  cardsSection.prepend(card.generateCard());
 }
 
 function renderCards(...initialCards) {
   initialCards.map( card => addCard(card));
-}
-
-function toggleLike(event) {
-  event.target.closest('.cards__btn-like').classList.toggle('cards__btn-like_active');
-}
-
-function deleteCard(event) {
-  event.target.closest('.cards__item').remove();
 }
 
 function createNewCard() {
@@ -74,18 +55,6 @@ function closePopup(popup) {
 }
 
 // Обработчики событий
-
-function handlerClickImg(event) {
-  const imgTargetElement = event.target.closest('.cards__item-img');
-  const popupImg = popupImgView.querySelector('.popup__img');
-  const popupImgCaption = popupImgView.querySelector('.popup__caption');
-
-  popupImg.src = imgTargetElement.src;
-  popupImg.alt = imgTargetElement.alt;
-  popupImgCaption.textContent = imgTargetElement.alt;
-  openPopup(popupImgView);
-  document.addEventListener('keydown', handlerKeydownPopup);
-}
 
 function handlerBtnEditProfile() {
   popupEditProfileInputName.value = profileName.textContent;
@@ -133,3 +102,7 @@ popupEditProfile.addEventListener('click', handlerClickPopup);
 
 popupAddCard.addEventListener('submit', handlerSubmitAddCard); 
 popupEditProfile.addEventListener('submit', handlerSubmitEditProfile); 
+
+const validator = new FormValidator(classListForm, '');
+
+validator.enableValidation();
