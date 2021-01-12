@@ -15,6 +15,7 @@ const popupAddCard = document.querySelector('.popup_name_cardAdd');
 const popupAddCardForm = popupAddCard.querySelector('.popup__container');
 const popupCardTitle = popupAddCard.querySelector('.popup__input_type_card-title');
 const popupCardLink = popupAddCard.querySelector('.popup__input_type_card-link');
+const popupAddCardBtn = popupAddCard.querySelector('.popup__btn-form');
 
 const popupEditProfile = document.querySelector('.popup_name_profileEdit');
 const popupEditProfileInputName = popupEditProfile.querySelector('.popup__input_type_profile-name');
@@ -37,6 +38,7 @@ function createNewCard() {
   cardElement.name = popupCardTitle.value;
   cardElement.link = popupCardLink.value;
 
+  popupAddCardBtn.classList.add(classListForm.inactiveButtonClass);
   addCard(cardElement);
 }
 
@@ -63,8 +65,11 @@ function handlerBtnEditProfile() {
   openPopup(popupEditProfile);
 }
 
+// Исправлен баг если пользователь ввел валидные данные затем закрыл popup
+
 function handlerBtnAddCard() {
   popupAddCardForm.reset();
+  popupAddCardBtn.classList.add(classListForm.inactiveButtonClass);
   openPopup(popupAddCard);
 }
 
