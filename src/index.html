@@ -4,21 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="pages/index.css">
   <title>Mesto</title>
-  <script src="scripts/index.js" type="module"></script>
 </head>
 
 <body>
   <div class="page">
     <header class="header page__header">
       <a class="link header__logo" href="https://dworkin38.github.io/mesto/index.html" target="_self">
-        <img class="header__logo-img" src="images/header/logo.svg" alt="Места России">
+        <img class="header__logo-img" src="<%=require('./images/header/logo.svg')%>" alt="Места России"/>
       </a>
     </header>
     <main class="main page__main">
       <section class="profile main__profile">
-        <img class="profile__avatar" src="images/profile/image.jpg" alt="Картинка аватара">
+        <img class="profile__avatar" src="<%=require('./images/profile/image.jpg')%>" alt="Картинка аватара"/>
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button class="btn btn_type_img btn_style_edit profile__btn-edit" type="button"></button>

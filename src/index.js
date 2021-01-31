@@ -5,6 +5,7 @@ import PopupWithImage from './components/PopupWithImage.js';
 import PopupWithForm from './components/PopupWithForm.js';
 import UserInfo from './components/UserInfo.js';
 import FormValidator from './components/FormValidator.js';
+import './pages/index.css';
 
 const btnAddCard = document.querySelector('.profile__btn-add');
 const btnEditProfile = document.querySelector('.profile__btn-edit');
