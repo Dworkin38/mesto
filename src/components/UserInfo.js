@@ -7,7 +7,7 @@ export default class UserInfo {
   }
 
   getUserInfo() {
-    const user = { name: this.userName.textContent, info: this.userInfo.textContent }
+    const user = { profileName: this.userName.textContent, profileJob: this.userInfo.textContent }
     return user;
   }
 

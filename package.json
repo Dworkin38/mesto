@@ -2,7 +2,7 @@
   "name": "mesto",
   "version": "1.0.0",
   "description": "* Одностраничный сайт с использованием html, css, javascript, БЭМ.\r * Файловая структура Nest.\r * Большая часть сайта сверстана с применением grid.\r * На сайте можно редактировать профиль, добавлять карточки и ставить им лайки. После перезагрузки страницы сайт возвращается в исходную форму.\r * Сайт адаптивен вплоть до 320px.",
-  "main": "scripts/index.js",
+  "main": "./src/pages/index.js",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve"

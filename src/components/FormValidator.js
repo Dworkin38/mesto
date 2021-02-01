@@ -1,31 +1,20 @@
 export default class FormValidator {
-  constructor(classListForm, formElement) {
+  constructor(classListForm, selectorFormElement) {
     this._classListForm = classListForm;
-    this._formElement = formElement;
+    this._formElement = document.querySelector(`.${selectorFormElement}`).querySelector(classListForm.formSelector);
   }
 
   enableValidation() {
-    const popupFormList = Array.from(document.querySelectorAll(this._classListForm.formSelector));
-  
-    popupFormList.forEach((popupFormElement) => {
-  
-      popupFormElement.addEventListener('submit', (event) => {
-        event.preventDefault();
-      });
-      const formElement = new FormValidator(this._classListForm, popupFormElement);
-      formElement._setEventListenersPopupInput();
-    });
-  };
-
-  _setEventListenersPopupInput() {
-    const popupInputList = Array.from(this._formElement.querySelectorAll(this._classListForm.inputSelector));
-    const popupSubmitBtn = this._formElement.querySelector(this._classListForm.submitButtonSelector);
+    const formInputList = Array.from(this._formElement.querySelectorAll(this._classListForm.inputSelector));
+    const formSubmitBtn = this._formElement.querySelector(this._classListForm.submitButtonSelector);
+    this._formElement.addEventListener('submit', (event) => event.preventDefault()); 
+   
     
-    this._toggleBtnPopupFormState(this._isValidForm(), popupSubmitBtn);
-    popupInputList.forEach((popupInputElement) => {
-      popupInputElement.addEventListener('input', () => {
-        this._checkPopupInputValidity(popupInputElement);
-        this._toggleBtnPopupFormState(this._isValidForm(), popupSubmitBtn);
+    this._toggleBtnPopupFormState(this._isValidForm(), formSubmitBtn);
+    formInputList.forEach((formInputElement) => {
+      formInputElement.addEventListener('input', () => {
+        this._checkPopupInputValidity(formInputElement);
+        this._toggleBtnPopupFormState(this._isValidForm(), formSubmitBtn);
       });
     });
   }
