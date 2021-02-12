@@ -16,11 +16,13 @@
     </header>
     <main class="main page__main">
       <section class="profile main__profile">
-        <img class="profile__avatar" src="<%=require('./images/profile/image.jpg')%>" alt="Картинка аватара"/>
+        <div class="profile__avatar-overlay">
+          <img class="profile__avatar" src="#" alt="Картинка аватара"/>
+        </div>
         <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <h1 class="profile__name"></h1>
           <button class="btn btn_type_img btn_style_edit profile__btn-edit" type="button"></button>
-          <p class="profile__subtitle">Исследователь океана</p>
+          <p class="profile__subtitle"></p>
         </div>
         <button class="btn btn_type_img btn_style_add profile__btn-add" type="button"></button>
       </section>
@@ -63,6 +65,26 @@
       </form>
     </div>
 
+    <div class="popup popup_type_form popup_name_deleteConfirm">
+      <form class="popup__container" name="deleteConfirm" method="post" action="#" novalidate>
+        <button class="btn btn_type_img btn_style_close popup__btn-close" type="button"></button>
+        <h2 class="popup__title popup__title_without-input">Вы уверены?</h2>
+        <button class="btn btn_type_text popup__btn-form popup__btn-form_without-input" type="submit">Да</button>
+      </form>
+    </div>
+
+    <div class="popup popup_type_form popup_name_avatarEdit">
+      <form class="popup__container" name="avatarEdit" method="post" action="#" novalidate>
+        <button class="btn btn_type_img btn_style_close popup__btn-close" type="button"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <label class="popup__field">
+          <input class="popup__input popup__input_type_avatar-link" type="url" name="avatarLink" placeholder="Ссылка на аватар" required>
+          <span class="popup__error-message popup__error-message_type_input" id="avatarLink-error"></span>
+        </label>
+        <button class="btn btn_type_text popup__btn-form" type="submit">Сохранить</button>
+      </form>
+    </div>
+
     <div class="popup popup_type_img">
       <figure class="popup__figure">
         <button class="btn btn_type_img btn_style_close popup__btn-close" type="button"></button>
@@ -76,7 +98,10 @@
         <img class="cards__item-img" src="#" alt="#">
         <h2 class="cards__item-title"></h2>
         <button class="btn btn_type_img cards__btn-trash" type="button"></button>
-        <button class="btn cards__btn-like" type="button"></button>
+        <div class="cards__like">
+          <button class="btn cards__btn-like" type="button"></button>
+          <div class="cards__like-count"></div>
+        </div>
       </article>
     </template>
   </div>

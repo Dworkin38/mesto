@@ -1,0 +1,9 @@
+.popup__title_without-input {
+  margin: 0 0 38px;
+}
+
+@media screen and (max-width: 500px) {
+  .popup__title_without-input {
+    margin: 0 0 38px;
+  }
+}

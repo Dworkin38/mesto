@@ -31,4 +31,12 @@ export const classListForm = {
     submitButtonSelector: '.popup__btn-form',
     inactiveButtonClass: 'popup__btn-form_invalid',
     inputErrorClass: 'popup__input_validity_invalid',
-  };
+};
+
+export const apiConfig = {
+    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-20',
+    headers: {
+      authorization: '156bdf1d-b455-43df-b7cb-d6a28bb34051',
+      'Content-Type': 'application/json'
+    }
+};
