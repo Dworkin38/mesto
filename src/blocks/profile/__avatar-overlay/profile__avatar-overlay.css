@@ -5,7 +5,8 @@
 .profile__avatar-overlay::after {
   content: "";
   position: absolute;
-  top: 0; right: 0;
+  top: 0;
+  right: 0;
   width: 120px;
   height: 120px;
   z-index: 100;
