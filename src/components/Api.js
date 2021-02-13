@@ -5,7 +5,7 @@ const handlerErrorApi = (res) => {
 
 export default class Api {
   constructor(options) {
-    this.options = JSON.parse(JSON.stringify(options));
+    this.options = options;
   }
 
   getProfile() {

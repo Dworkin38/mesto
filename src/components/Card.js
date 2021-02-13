@@ -57,11 +57,11 @@ export default class Card {
 
   _setEventListener(userId) {
     this._element.querySelector('.cards__item-img').addEventListener('click', () => this._handlerCardImgClick(this._imgLink, this._imgName));
-    this._likeBtn.addEventListener('click', () => this._handlerCardLikeClick());
+    this._likeBtn.addEventListener('click', () => this._handlerCardLikeClick(this));
     
     if(userId === this._ownerId) { 
       this._trash.addEventListener('click', () => {
-        this._handlerCardDeleteClick();
+        this._handlerCardDeleteClick(this);
       });
     } else {
       this._trash.remove();
